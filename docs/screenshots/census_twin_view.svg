@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="100%" height="100%">
+  <rect width="1000" height="800" fill="#0b0f19"/>
+  
+  <!-- Outer Card Frame -->
+  <rect x="150" y="50" width="700" height="700" rx="8" fill="#151d2a" stroke="#38bdf8" stroke-width="2"/>
+  
+  <!-- Header Bar -->
+  <rect x="150" y="50" width="700" height="50" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="180" y="82" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="bold" fill="#38bdf8">YOUR CENSUS TWIN</text>
+  <text x="740" y="82" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="bold" fill="#22c55e">MATCH: 97.8%</text>
+
+  <!-- Large Character Avatar Frame -->
+  <rect x="400" y="130" width="200" height="200" rx="6" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <!-- Gojo Avatar Graphic -->
+  <path d="M 400 130 H 600 V 330 H 400 Z" fill="#312e81"/>
+  <path d="M 460 240 C 460 195, 540 195, 540 240 C 540 285, 525 300, 500 300 C 475 300, 460 285, 460 240 Z" fill="#F3D5C0" stroke="#111" stroke-width="3"/>
+  <path d="M 440 230 L 425 190 L 455 185 L 455 145 L 485 160 L 500 135 L 515 160 L 545 145 L 545 185 L 575 190 L 560 230 Z" fill="#F8FAFC" stroke="#111" stroke-width="3"/>
+  <rect x="452" y="215" width="96" height="24" rx="3" fill="#0F172A" stroke="#111" stroke-width="2"/>
+  <rect x="530" y="140" width="60" height="20" rx="2" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="560" y="154" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#94a3b8" text-anchor="middle">#GOJO</text>
+
+  <!-- Character Info -->
+  <text x="500" y="380" font-family="'Archivo', sans-serif" font-size="36" font-weight="900" fill="#f8fafc" text-anchor="middle">GOJO SATORU</text>
+  <text x="500" y="410" font-family="'IBM Plex Mono', monospace" font-size="14" fill="#94a3b8" text-anchor="middle">JUJUTSU KAISEN</text>
+
+  <rect x="350" y="430" width="300" height="32" rx="4" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+  <text x="500" y="451" font-family="'IBM Plex Mono', monospace" font-size="12" font-weight="bold" fill="#38bdf8" text-anchor="middle">DOMAIN EXPANSION VOLUME</text>
+
+  <!-- Compatibility Box -->
+  <rect x="250" y="485" width="500" height="90" rx="4" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="280" y="515" font-family="'IBM Plex Mono', monospace" font-size="12" fill="#94a3b8">FOLLICULAR MATCH</text>
+  <text x="690" y="515" font-family="'Archivo', sans-serif" font-size="20" font-weight="bold" fill="#f8fafc">97.8%</text>
+
+  <text x="280" y="540" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#64748b">HAIR DENSITY COMPATIBILITY</text>
+  <text x="280" y="562" font-family="'IBM Plex Mono', monospace" font-size="16" fill="#38bdf8">███████████████████░</text>
+
+  <!-- Quote -->
+  <text x="500" y="625" font-family="'IBM Plex Sans', sans-serif" font-size="15" font-style="italic" fill="#cbd5e1" text-anchor="middle">"Your hair appears to possess its own domain expansion."</text>
+
+  <!-- Metrics Strip -->
+  <rect x="250" y="660" width="235" height="50" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="265" y="680" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#64748b">HAIR COVERAGE</text>
+  <text x="265" y="700" font-family="'Archivo', sans-serif" font-size="16" font-weight="bold" fill="#f8fafc">78.4%</text>
+
+  <rect x="515" y="660" width="235" height="50" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="530" y="680" font-family="'IBM Plex Mono', monospace" font-size="10" fill="#64748b">SCALP EXPOSURE</text>
+  <text x="530" y="700" font-family="'Archivo', sans-serif" font-size="16" font-weight="bold" fill="#f8fafc">21.6%</text>
+</svg>

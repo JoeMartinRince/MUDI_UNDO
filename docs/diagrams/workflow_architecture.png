@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 450" width="100%" height="100%">
+  <rect width="1200" height="450" fill="#0b0f19"/>
+  <text x="600" y="45" font-family="'Archivo', sans-serif" font-size="22" font-weight="900" fill="#f8fafc" text-anchor="middle">MUDI UNDO?™ PIPELINE ARCHITECTURE</text>
+
+  <!-- Nodes -->
+  <!-- 1. Camera -->
+  <rect x="40" y="100" width="170" height="120" rx="6" fill="#151d2a" stroke="#38bdf8" stroke-width="2"/>
+  <text x="125" y="145" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="bold" fill="#38bdf8" text-anchor="middle">BROWSER CAMERA</text>
+  <text x="125" y="175" font-family="'IBM Plex Sans', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">getUserMedia API</text>
+
+  <!-- Arrow 1 -->
+  <path d="M 210 160 L 250 160" stroke="#38bdf8" stroke-width="3" fill="none" stroke-dasharray="4 2"/>
+  <polygon points="250,154 260,160 250,166" fill="#38bdf8"/>
+
+  <!-- 2. Base64 -->
+  <rect x="260" y="100" width="170" height="120" rx="6" fill="#151d2a" stroke="#38bdf8" stroke-width="2"/>
+  <text x="345" y="145" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="bold" fill="#38bdf8" text-anchor="middle">IMAGE ENCODER</text>
+  <text x="345" y="175" font-family="'IBM Plex Sans', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Canvas / Base64 Data</text>
+
+  <!-- Arrow 2 -->
+  <path d="M 430 160 L 470 160" stroke="#38bdf8" stroke-width="3" fill="none"/>
+  <polygon points="470,154 480,160 470,166" fill="#38bdf8"/>
+
+  <!-- 3. Gemini Vision -->
+  <rect x="480" y="100" width="190" height="120" rx="6" fill="#151d2a" stroke="#a855f7" stroke-width="2"/>
+  <text x="575" y="145" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="bold" fill="#a855f7" text-anchor="middle">GEMINI 2.5 VISION</text>
+  <text x="575" y="175" font-family="'IBM Plex Sans', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Multimodal Hair Analysis</text>
+
+  <!-- Arrow 3 -->
+  <path d="M 670 160 L 710 160" stroke="#a855f7" stroke-width="3" fill="none"/>
+  <polygon points="710,154 720,160 710,166" fill="#a855f7"/>
+
+  <!-- 4. Estimator -->
+  <rect x="720" y="100" width="180" height="120" rx="6" fill="#151d2a" stroke="#22c55e" stroke-width="2"/>
+  <text x="810" y="145" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="bold" fill="#22c55e" text-anchor="middle">POPULATION MODEL</text>
+  <text x="810" y="175" font-family="'IBM Plex Sans', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Density & Exposure Calc</text>
+
+  <!-- Arrow 4 -->
+  <path d="M 900 160 L 940 160" stroke="#22c55e" stroke-width="3" fill="none"/>
+  <polygon points="940,154 950,160 940,166" fill="#22c55e"/>
+
+  <!-- 5. Twin Matcher -->
+  <rect x="950" y="100" width="210" height="120" rx="6" fill="#151d2a" stroke="#eab308" stroke-width="2"/>
+  <text x="1055" y="145" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="bold" fill="#eab308" text-anchor="middle">CENSUS TWIN MATCHER</text>
+  <text x="1055" y="175" font-family="'IBM Plex Sans', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">Single Source of Truth Match</text>
+
+  <!-- Flow to Output -->
+  <path d="M 1055 220 L 1055 310 L 600 310 L 600 340" stroke="#eab308" stroke-width="2" fill="none"/>
+  <polygon points="594,340 600,350 606,340" fill="#eab308"/>
+
+  <!-- Output Box -->
+  <rect x="420" y="350" width="360" height="70" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <text x="600" y="380" font-family="'IBM Plex Mono', monospace" font-size="14" font-weight="bold" fill="#38bdf8" text-anchor="middle">OFFICIAL CENSUS REPORT & CERTIFICATE</text>
+  <text x="600" y="402" font-family="'IBM Plex Sans', sans-serif" font-size="11" fill="#94a3b8" text-anchor="middle">PDF / PNG Exportable DOC MU-11</text>
+</svg>
