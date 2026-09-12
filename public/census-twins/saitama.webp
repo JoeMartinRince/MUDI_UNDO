@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#EAB308"/><stop offset="100%" stop-color="#CA8A04"/>
+      </linearGradient>
+      <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="200" height="200" fill="url(#bg)" />
+    <rect width="200" height="200" fill="url(#grid)" />
+    <!-- Head Base -->
+    <path d="M 60 110 C 60 65, 140 65, 140 110 C 140 155, 125 170, 100 170 C 75 170, 60 155, 60 110 Z" fill="#F3D5C0" stroke="#111" stroke-width="3"/>
+    <!-- Character Hair / Accessories -->
+    <g fill="none" stroke="#111" stroke-width="3">
+      
+    </g>
+    <ellipse cx="100" cy="85" rx="35" ry="25" fill="#FFE4D6" opacity="0.3"/>
+     <path d="M 80 65 Q 100 55 120 65" stroke="#FFF" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.7"/>
+     <ellipse cx="80" cy="115" rx="6" ry="6" fill="#111"/>
+     <ellipse cx="120" cy="115" rx="6" ry="6" fill="#111"/>
+     <path d="M 72 105 L 88 108" stroke="#111" stroke-width="3"/>
+     <path d="M 128 105 L 112 108" stroke="#111" stroke-width="3"/>
+  </svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#EA580C"/><stop offset="100%" stop-color="#9A3412"/>
+      </linearGradient>
+      <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="200" height="200" fill="url(#bg)" />
+    <rect width="200" height="200" fill="url(#grid)" />
+    <!-- Head Base -->
+    <path d="M 60 110 C 60 65, 140 65, 140 110 C 140 155, 125 170, 100 170 C 75 170, 60 155, 60 110 Z" fill="#F3D5C0" stroke="#111" stroke-width="3"/>
+    <!-- Character Hair / Accessories -->
+    <g fill="#F97316" stroke="#111" stroke-width="3">
+      <path d="M 40 100 L 30 65 L 55 60 L 60 25 L 85 40 L 105 15 L 125 40 L 145 25 L 150 60 L 175 65 L 160 100 Z"/>
+    </g>
+    
+  </svg>

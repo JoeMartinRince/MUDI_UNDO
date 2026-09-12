@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { CensusResult } from "@/data/census";
 
 interface TwinCardProps {
@@ -8,7 +7,14 @@ interface TwinCardProps {
 }
 
 export function TwinCard({ twin, hairCoverage, scalpExposure }: TwinCardProps) {
-  const [imgError, setImgError] = useState(false);
+  // Development debug log
+  console.log("[CENSUS TWIN]", {
+    id: twin.id,
+    name: twin.name,
+    image: twin.image,
+  });
+
+  const imageSrc = twin.image || "/census-twins/placeholder.webp";
   const matchPercent = twin.matchScore ? `${Number(twin.matchScore).toFixed(1)}%` : "87.0%";
 
   // Calculate filled blocks for HAIR DENSITY COMPATIBILITY meter
@@ -24,7 +30,7 @@ export function TwinCard({ twin, hairCoverage, scalpExposure }: TwinCardProps) {
   const exposureVal = scalpExposure ?? Number((100 - coverageVal).toFixed(1));
 
   return (
-    <section className="border border-border bg-paper p-0">
+    <section key={twin.id || twin.name} className="border border-border bg-paper p-0">
       {/* Header bar */}
       <div className="hairline-b flex items-center justify-between px-4 py-3 sm:px-6">
         <h3 className="label-tech-ink">YOUR CENSUS TWIN</h3>
@@ -36,21 +42,16 @@ export function TwinCard({ twin, hairCoverage, scalpExposure }: TwinCardProps) {
         <div className="relative mx-auto my-2 flex h-44 w-44 shrink-0 items-center justify-center overflow-hidden border-2 border-hairline bg-secondary/40 shadow-inner sm:h-56 sm:w-56">
           <div className="grid-paper absolute inset-0 opacity-40" aria-hidden />
 
-          {!imgError && twin.image ? (
-            <img
-              src={twin.image}
-              alt={twin.name}
-              className="relative z-10 h-full w-full object-cover transition-opacity duration-300"
-              onError={() => setImgError(true)}
-            />
-          ) : (
-            <div className="relative z-10 flex flex-col items-center justify-center gap-1 p-4">
-              <span className="label-tech text-xs tracking-widest text-muted-foreground">
-                [ CHARACTER ]
-              </span>
-              <span className="wordmark text-lg text-foreground">{twin.name}</span>
-            </div>
-          )}
+          <img
+            key={twin.id || twin.image}
+            src={imageSrc}
+            alt={twin.name}
+            className="relative z-10 h-full w-full object-cover transition-opacity duration-300"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = "/census-twins/placeholder.webp";
+            }}
+          />
 
           <span className="label-tech absolute top-1.5 right-1.5 z-20 border border-border bg-paper/90 px-1.5 py-0.5 text-[10px] backdrop-blur-sm">
             TWIN ID #{twin.id ? twin.id.toUpperCase() : "MU-TWIN"}

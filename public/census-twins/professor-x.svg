@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#1E3A8A"/><stop offset="100%" stop-color="#0F172A"/>
+      </linearGradient>
+      <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="200" height="200" fill="url(#bg)" />
+    <rect width="200" height="200" fill="url(#grid)" />
+    <!-- Head Base -->
+    <path d="M 60 110 C 60 65, 140 65, 140 110 C 140 155, 125 170, 100 170 C 75 170, 60 155, 60 110 Z" fill="#F3D5C0" stroke="#111" stroke-width="3"/>
+    <!-- Character Hair / Accessories -->
+    <g fill="none" stroke="#111" stroke-width="3">
+      
+    </g>
+    <circle cx="100" cy="100" r="75" fill="none" stroke="#60A5FA" stroke-width="2" stroke-dasharray="6 4" opacity="0.8"/>
+     <circle cx="100" cy="100" r="85" fill="none" stroke="#93C5FD" stroke-width="1.5" opacity="0.5"/>
+     <circle cx="100" cy="40" r="14" fill="#E2E8F0" stroke="#0F172A" stroke-width="2"/>
+     <path d="M 93 33 L 107 47 M 107 33 L 93 47" stroke="#0F172A" stroke-width="3"/>
+  </svg>

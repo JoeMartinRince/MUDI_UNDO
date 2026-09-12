@@ -101,11 +101,14 @@ export const MOCK_RESULT: CensusResult = {
   verdict:
     "Hair detected. The census department confirms that the subject currently possesses a statistically significant quantity of hair.",
   twin: {
-    name: "SAITAMA",
-    association: "LOW-FOLLICLE ASSOCIATION",
-    note: "Matched using hair-density classification only. This is not facial recognition.",
-    franchise: "One-Punch Man",
-    matchScore: 87,
+    id: "tanjiro",
+    name: "TANJIRO KAMADO",
+    association: "WATER BREATHING CROP",
+    note: "Your follicles have mastered the Water Breathing technique.",
+    franchise: "Demon Slayer",
+    image: "/census-twins/tanjiro.webp",
+    matchScore: 97.8,
+    targetHairCoverage: 78,
   },
   telemetry: {
     pixelsAnalysed: 1_482_912,

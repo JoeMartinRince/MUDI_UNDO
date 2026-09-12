@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+    <defs>
+      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#0284C7"/><stop offset="100%" stop-color="#075985"/>
+      </linearGradient>
+      <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      </pattern>
+    </defs>
+    <rect width="200" height="200" fill="url(#bg)" />
+    <rect width="200" height="200" fill="url(#grid)" />
+    <!-- Head Base -->
+    <path d="M 60 110 C 60 65, 140 65, 140 110 C 140 155, 125 170, 100 170 C 75 170, 60 155, 60 110 Z" fill="#F3D5C0" stroke="#111" stroke-width="3"/>
+    <!-- Character Hair / Accessories -->
+    <g fill="#1E293B" stroke="#111" stroke-width="3">
+      <ellipse cx="100" cy="70" rx="75" ry="20" fill="#EAB308" stroke="#111" stroke-width="3"/>
+     <path d="M 60 70 C 60 30, 140 30, 140 70 Z" fill="#EAB308" stroke="#111" stroke-width="3"/>
+     <path d="M 60 65 Q 100 72 140 65" stroke="#DC2626" stroke-width="8" fill="none"/>
+     <path d="M 50 90 L 65 110 L 75 95 M 125 95 L 135 110 L 150 90" fill="#1E293B"/>
+    </g>
+    
+  </svg>
