@@ -98,7 +98,14 @@ function AnalysisPage() {
           <span className="num-tabular">{Math.round(progress * 100)}% COMPLETE</span>
         </div>
 
-        <h1 className="wordmark mt-3 text-3xl sm:text-4xl">CENSUS IN PROGRESS</h1>
+        <div className="flex items-center gap-3 mt-3">
+          <img
+            src="/mudi-undo-logo.jpeg"
+            alt="MUDI UNDO Engine"
+            className="h-10 w-10 shrink-0 object-cover rounded border border-hairline bg-paper shadow-sm"
+          />
+          <h1 className="wordmark text-3xl sm:text-4xl">CENSUS IN PROGRESS</h1>
+        </div>
 
         <div className="mt-4 h-1 w-full overflow-hidden border border-hairline bg-secondary">
           <div

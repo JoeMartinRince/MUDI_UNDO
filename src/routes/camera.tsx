@@ -207,9 +207,16 @@ function CameraPage() {
           <span>{captured ? "PREVIEW" : "ACQUISITION"}</span>
         </div>
 
-        <h1 className="wordmark mt-3 text-3xl sm:text-4xl">
-          {captured ? "IMAGE ACQUIRED" : "POSITION YOUR HEAD"}
-        </h1>
+        <div className="flex items-center gap-3 mt-3">
+          <img
+            src="/mudi-undo-logo.jpeg"
+            alt="MUDI UNDO Acquisition"
+            className="h-10 w-10 shrink-0 object-cover rounded border border-hairline bg-paper shadow-sm"
+          />
+          <h1 className="wordmark text-3xl sm:text-4xl">
+            {captured ? "IMAGE ACQUIRED" : "POSITION YOUR HEAD"}
+          </h1>
+        </div>
         <p className="mt-2 max-w-prose text-sm leading-relaxed text-foreground/80">
           {captured
             ? "Review the acquired frame before submitting it to the census engine."

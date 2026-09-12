@@ -76,9 +76,18 @@ function ResultsPage() {
 
         {/* headline result */}
         <section className="animate-rise mt-6">
-          <h1 className="wordmark text-4xl sm:text-6xl">MUDI UNDO?</h1>
-          <div lang="ml" className="mt-2 text-base text-muted-foreground">
-            മുടി ഉണ്ടോ?
+          <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
+            <img
+              src="/mudi-undo-logo.jpeg"
+              alt="MUDI UNDO Bureau Logo"
+              className="h-12 w-12 sm:h-16 sm:w-16 shrink-0 object-cover rounded border-2 border-hairline bg-paper shadow-md"
+            />
+            <div>
+              <h1 className="wordmark text-4xl sm:text-6xl">MUDI UNDO?</h1>
+              <div lang="ml" className="mt-1 text-base text-muted-foreground">
+                മുടി ഉണ്ടോ?
+              </div>
+            </div>
           </div>
 
           <div className="mt-6 border border-hairline bg-paper p-5 sm:p-7">

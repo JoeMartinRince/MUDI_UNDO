@@ -13,11 +13,16 @@ export function CensusCertificate({ result }: { result: CensusResult }) {
     <article className="relative overflow-hidden border-2 border-primary bg-paper">
       <div className="grid-paper absolute inset-0 opacity-25" aria-hidden />
       <div className="relative m-1.5 border border-hairline px-5 py-6 sm:px-8 sm:py-8">
-        <div className="text-center">
+        <div className="flex flex-col items-center text-center">
+          <img
+            src="/mudi-undo-logo.jpeg"
+            alt="MUDI UNDO Seal"
+            className="h-14 w-14 object-cover rounded-full border-2 border-primary shadow-sm mb-2"
+          />
           <div className="wordmark text-2xl sm:text-3xl">
             MUDI UNDO?<sup className="align-super text-[0.35em]">™</sup>
           </div>
-          <div className="label-tech mt-2">OFFICIAL HUMAN HAIR CENSUS</div>
+          <div className="label-tech mt-1.5">OFFICIAL HUMAN HAIR CENSUS</div>
           <div className="mx-auto mt-4 h-px w-16 bg-primary" />
         </div>
 
@@ -36,11 +41,14 @@ export function CensusCertificate({ result }: { result: CensusResult }) {
         </dl>
 
         <div className="mt-6 flex items-center justify-between gap-4">
-          <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full border-2 border-primary text-center">
-            <span className="label-tech text-primary">
-              SEAL
-              <br />
-              MU
+          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border-2 border-primary">
+            <img
+              src="/mudi-undo-logo.jpeg"
+              alt="Department Seal"
+              className="h-full w-full object-cover"
+            />
+            <span className="label-tech absolute inset-0 flex items-center justify-center bg-paper/60 text-[10px] font-bold text-primary backdrop-blur-[1px]">
+              SEAL MU
             </span>
           </div>
           <div className="min-w-0 text-right">

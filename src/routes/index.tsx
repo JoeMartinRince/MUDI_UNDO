@@ -47,7 +47,7 @@ function Landing() {
         <main>
           <section className="grid gap-8 py-8 sm:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
             <div className="min-w-0">
-              <Wordmark size="xl" showSub={false} />
+              <Wordmark size="xl" showSub={false} showLogo={true} />
               <div
                 lang="ml"
                 className="mt-3 font-sans text-lg text-muted-foreground sm:text-xl"
