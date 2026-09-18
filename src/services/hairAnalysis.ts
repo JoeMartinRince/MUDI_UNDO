@@ -7,6 +7,7 @@ import {
 import { type ProcessedImage, getImageFingerprint } from "./imageProcessor";
 import { analyzeHairWithGemini, type GeminiAnalysisResponse } from "./geminiServerFn";
 import { findCensusTwin } from "@/services/censusTwinMatcher";
+import { getSavedUserGuess, saveCensusToHistory } from "@/services/censusStorage";
 
 let activeCapturedImage: ProcessedImage | Blob | string | null = null;
 let activeAnalysisResult: CensusResult | null = null;
@@ -189,15 +190,24 @@ export async function analyzeHair(
   const censusNumber = `MU-2026-${Math.floor(10000 + Math.random() * 90000)}`;
   const twin = findCensusTwin(coverage, confidence, censusNumber);
 
-  let classification: Classification = "DRY LAND";
-  if (coverage > 80) classification = "DENSE FOREST";
-  else if (coverage > 60) classification = "WOODLAND";
-  else if (coverage > 40) classification = "GRASSLAND";
-  else if (coverage > 20) classification = "DRY LAND";
-  else if (coverage > 5) classification = "DESERT";
-  else classification = "MOON SURFACE";
+  let classification: Classification = "Forest";
+  if (hairPopulation >= 120000) classification = "Amazon Prime";
+  else if (hairPopulation >= 90000) classification = "Rainforest";
+  else if (hairPopulation >= 60000) classification = "Forest";
+  else if (hairPopulation >= 30000) classification = "Savanna";
+  else if (hairPopulation >= 10000) classification = "Grassland";
+  else classification = "Smooth Operator";
 
   const todayStr = new Date().toISOString().split("T")[0] ?? "2026-09-12";
+
+  // Check if user submitted a pre-scan guess prediction
+  const userGuess = getSavedUserGuess();
+  let userGuessAccuracy: number | undefined;
+  if (userGuess !== null) {
+    const diff = Math.abs(hairPopulation - userGuess);
+    const maxVal = Math.max(hairPopulation, userGuess, 1);
+    userGuessAccuracy = Math.max(0, Math.round((1 - diff / maxVal) * 100));
+  }
 
   const finalResult: CensusResult = {
     ...MOCK_RESULT,
@@ -215,7 +225,12 @@ export async function analyzeHair(
       ? `Head detected. ${geminiRes.notes}`
       : "No distinct head/scalp structure identified.",
     twin,
+    userGuess: userGuess ?? undefined,
+    userGuessAccuracy,
   };
+
+  // Automatically archive completed census in browser LocalStorage
+  saveCensusToHistory(finalResult);
 
   setLatestResult(finalResult);
   return finalResult;

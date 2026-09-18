@@ -6,6 +6,7 @@ import { MetaStrip } from "@/components/census/MetaStrip";
 import { ANALYSIS_TELEMETRY } from "@/data/census";
 import { analyzeHair, getCapturedImage, getGeminiDebugInfo } from "@/services/hairAnalysis";
 import { cn } from "@/lib/utils";
+import { Sparkles, Activity } from "lucide-react";
 
 export const Route = createFileRoute("/analysis")({
   head: () => ({
@@ -22,16 +23,17 @@ export const Route = createFileRoute("/analysis")({
   component: AnalysisPage,
 });
 
-const DEBUG_STAGES = [
-  { id: "prepare", label: "PREPARING IMAGE FRAME", at: 300 },
-  { id: "gemini", label: "WAITING FOR GEMINI RESULT...", at: 1500 },
-  { id: "finalize", label: "FINALIZING CENSUS REPORT", at: 2500 },
+const CINEMATIC_STAGES = [
+  { id: "init", label: "Initializing Census...", at: 300 },
+  { id: "geometry", label: "Analyzing head geometry...", at: 1000 },
+  { id: "density", label: "Estimating hair density...", at: 1800 },
+  { id: "population", label: "Calculating population...", at: 2600 },
+  { id: "reveal", label: "Revealing final census record...", at: 3400 },
 ];
 
 function AnalysisPage() {
   const navigate = useNavigate();
   const [elapsed, setElapsed] = useState(0);
-  const [stageLabel, setStageLabel] = useState("WAITING FOR GEMINI RESULT...");
   const [debugInfo, setDebugInfo] = useState<{ received: boolean; data?: any; error?: string }>({ received: false });
 
   const capturedImage = getCapturedImage();
@@ -62,14 +64,13 @@ function AnalysisPage() {
 
     async function runPipeline() {
       try {
-        const result = await analyzeHair(capturedImage, { signal: controller.signal });
-        setStageLabel("GEMINI RESULT RECEIVED");
+        await analyzeHair(capturedImage, { signal: controller.signal });
         setDebugInfo(getGeminiDebugInfo());
 
-        // Short pause to ensure user sees completion status before navigation
+        // Pause to complete cinematic stages sequence before navigating to results
         setTimeout(() => {
           navigate({ to: "/results" });
-        }, 1200);
+        }, 3600);
       } catch (err: any) {
         if (err?.name !== "AbortError") {
           console.error("[MUDI DEBUG ERROR] Analysis execution failed:", err);
@@ -86,69 +87,76 @@ function AnalysisPage() {
     };
   }, [capturedImage, navigate]);
 
-  const progress = Math.min(elapsed / 3000, 1);
+  const progress = Math.min(elapsed / 3600, 1);
 
   return (
     <div className="flex min-h-dvh flex-col bg-background">
-      <SiteHeader context="CENSUS ENGINE / MU-VISION" />
+      <SiteHeader context="NATIONAL HAIR CENSUS ENGINE" />
 
-      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:px-6 sm:py-8">
+      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:px-6 sm:py-8 text-left space-y-6">
         <div className="label-tech flex items-center justify-between">
-          <span>STEP 03 OF 03</span>
-          <span className="num-tabular">{Math.round(progress * 100)}% COMPLETE</span>
+          <span className="flex items-center gap-1.5 font-bold text-primary">
+            <Activity className="h-3.5 w-3.5 animate-pulse" /> CINEMATIC CENSUS REVEAL PIPELINE
+          </span>
+          <span className="num-tabular font-bold text-foreground text-sm">{Math.round(progress * 100)}% COMPLETE</span>
         </div>
 
-        <div className="flex items-center gap-3 mt-3">
+        <div className="flex items-center gap-3">
           <img
             src="/mudi-undo-logo.jpeg"
             alt="MUDI UNDO Engine"
             className="h-10 w-10 shrink-0 object-cover rounded border border-hairline bg-paper shadow-sm"
           />
-          <h1 className="wordmark text-3xl sm:text-4xl">CENSUS IN PROGRESS</h1>
+          <h1 className="wordmark text-3xl sm:text-4xl">ANALYZING SPECIMEN FOLLICLES</h1>
         </div>
 
-        <div className="mt-4 h-1 w-full overflow-hidden border border-hairline bg-secondary">
+        {/* Animated Progress Bar */}
+        <div className="h-2 w-full overflow-hidden border border-hairline bg-secondary shadow-inner">
           <div
-            className="h-full bg-primary transition-[width] duration-150 ease-linear"
+            className="h-full bg-primary transition-[width] duration-200 ease-out"
             style={{ width: `${progress * 100}%` }}
           />
         </div>
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_0.9fr]">
+        <div className="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
           <div className="border border-hairline bg-paper p-2 sm:p-3">
             <div className="label-tech mb-2 flex items-center justify-between px-1">
-              <span>SEGMENTATION VIEW</span>
-              <span className="animate-blip">● SCANNING</span>
+              <span>SCANNER VIEWPORT</span>
+              <span className="animate-blip font-bold text-primary">● PROCESSING FOLLICLES</span>
             </div>
             <ScanVisualization scanning previewUrl={previewUrl} />
           </div>
 
-          <div className="min-w-0">
-            <ol className="divide-y divide-border border border-border bg-paper">
-              {DEBUG_STAGES.map((stage) => {
-                const isGeminiStage = stage.id === "gemini";
-                const displayLabel = isGeminiStage ? stageLabel : stage.label;
-                const isDone = debugInfo.received || elapsed >= stage.at;
+          <div className="min-w-0 space-y-4">
+            <ol className="divide-y divide-border border border-border bg-paper shadow-xs">
+              {CINEMATIC_STAGES.map((stage, idx) => {
+                const isDone = elapsed >= stage.at || debugInfo.received;
+                const isCurrent = elapsed >= (CINEMATIC_STAGES[idx - 1]?.at ?? 0) && elapsed < stage.at;
 
                 return (
                   <li
                     key={stage.id}
                     className={cn(
-                      "flex items-center gap-3 px-3.5 py-3.5 transition-colors",
-                      isGeminiStage && !debugInfo.received && "bg-accent/40",
+                      "flex items-center gap-3 px-4 py-3.5 transition-colors font-mono text-xs",
+                      isCurrent && "bg-accent/40 font-bold",
                     )}
                   >
                     <span
                       className={cn(
-                        "w-4 shrink-0 text-center font-mono text-xs",
-                        isDone ? "text-primary" : "animate-blip text-primary",
+                        "w-5 shrink-0 text-center font-mono text-sm",
+                        isDone ? "text-primary font-bold" : isCurrent ? "animate-bounce text-primary" : "text-muted-foreground",
                       )}
                       aria-hidden
                     >
-                      {isDone ? "✓" : "→"}
+                      {isDone ? "✓" : isCurrent ? "→" : "○"}
                     </span>
-                    <span className="min-w-0 font-mono text-[0.72rem] tracking-[0.14em] uppercase text-foreground">
-                      {displayLabel}
+                    <span
+                      className={cn(
+                        "min-w-0 tracking-wider uppercase",
+                        isDone ? "text-foreground font-semibold" : isCurrent ? "text-primary font-bold" : "text-muted-foreground",
+                      )}
+                    >
+                      {stage.label}
                     </span>
                   </li>
                 );
@@ -156,23 +164,22 @@ function AnalysisPage() {
             </ol>
 
             {/* Development-only Gemini Debug Panel */}
-            <div className="mt-4 border border-border bg-paper p-4 font-mono text-xs space-y-1">
-              <div className="font-bold text-primary tracking-widest uppercase mb-2">
-                GEMINI DEBUG PANEL
+            <div className="border border-border bg-paper p-4 font-mono text-xs space-y-1">
+              <div className="font-bold text-primary tracking-widest uppercase mb-1 flex items-center gap-1.5">
+                <Sparkles className="h-3.5 w-3.5" /> GEMINI AI VISION DIAGNOSTICS
               </div>
-              <div>
-                Server response received:{" "}
-                <span className={debugInfo.received ? "text-primary font-bold" : "text-muted-foreground"}>
-                  {debugInfo.received ? "YES" : "NO (WAITING...)"}
+              <div className="text-[0.65rem]">
+                SERVER STATUS:{" "}
+                <span className={debugInfo.received ? "text-emerald-700 font-bold" : "text-muted-foreground"}>
+                  {debugInfo.received ? "SUCCESSFUL RESPONSE RECEIVED" : "EXECUTING MULTI-KEY VISION CALL..."}
                 </span>
               </div>
-              {debugInfo.error && <div className="text-destructive">Error: {debugInfo.error}</div>}
+              {debugInfo.error && <div className="text-destructive text-[0.65rem]">Error: {debugInfo.error}</div>}
               {debugInfo.data && (
-                <div className="mt-2 space-y-1 border-t border-hairline pt-2">
-                  <div>headDetected: <span className="font-bold">{String(debugInfo.data.headDetected)}</span></div>
-                  <div>hairCoverage: <span className="font-bold">{debugInfo.data.hairCoverage}%</span></div>
-                  <div>confidence: <span className="font-bold">{debugInfo.data.confidence}%</span></div>
-                  <div>notes: <span className="italic">{debugInfo.data.notes}</span></div>
+                <div className="mt-2 space-y-1 border-t border-hairline pt-2 text-[0.65rem]">
+                  <div>HEAD DETECTED: <span className="font-bold">{String(debugInfo.data.headDetected)}</span></div>
+                  <div>COVERAGE %: <span className="font-bold">{debugInfo.data.hairCoverage}%</span></div>
+                  <div>CONFIDENCE: <span className="font-bold">{debugInfo.data.confidence}%</span></div>
                 </div>
               )}
             </div>
@@ -185,7 +192,7 @@ function AnalysisPage() {
             { label: "MODEL", value: ANALYSIS_TELEMETRY.model },
             { label: "FRAME RATE", value: ANALYSIS_TELEMETRY.frameRate },
             { label: "MODE", value: "GEMINI VISION PIPELINE" },
-            { label: "PROTOCOL", value: "MU-01" },
+            { label: "PROTOCOL", value: "NHCA-PROTOCOL-01" },
           ]}
         />
       </main>

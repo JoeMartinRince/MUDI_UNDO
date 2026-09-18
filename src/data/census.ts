@@ -8,24 +8,86 @@
  */
 
 export const SYSTEM_META = {
-  protocol: "MU-01",
-  status: "OPERATIONAL",
-  dataClass: "HUMAN HAIR",
-  version: "1.0",
-  department: "NATIONAL DEPARTMENT OF HAIR STATISTICS",
-  division: "CENSUS DIVISION",
+  protocol: "NHCA-PROTOCOL-01",
+  status: "ACTIVE SURVEILLANCE",
+  dataClass: "HUMAN HAIR CENSUS",
+  version: "2.0-NHCA",
+  department: "NATIONAL HAIR CENSUS AUTHORITY",
+  tagline: "Because someone had to count them.",
+  division: "FOLLICULAR ANALYTICS & POPULATION REGISTRATION",
+  sealCode: "NHCA-GOV-2026",
 } as const;
 
 export const CLASSIFICATION_SCALE = [
-  "MOON SURFACE",
-  "DESERT",
-  "DRY LAND",
-  "GRASSLAND",
-  "WOODLAND",
-  "DENSE FOREST",
+  "Smooth Operator",
+  "Grassland",
+  "Savanna",
+  "Forest",
+  "Rainforest",
+  "Amazon Prime",
 ] as const;
 
-export type Classification = (typeof CLASSIFICATION_SCALE)[number];
+export type Classification = (typeof CLASSIFICATION_SCALE)[number] | string;
+
+export interface ClassificationMeta {
+  name: string;
+  minCount: number;
+  maxCount: number;
+  icon: string;
+  description: string;
+  badge: string;
+}
+
+export const CLASSIFICATION_DETAILS: Record<string, ClassificationMeta> = {
+  "Smooth Operator": {
+    name: "SMOOTH OPERATOR",
+    minCount: 0,
+    maxCount: 10000,
+    icon: "🥚",
+    badge: "0k - 10k FOLLICLES",
+    description: "Aerodynamic perfection. Zero drag, maximum thermal efficiency.",
+  },
+  "Grassland": {
+    name: "GRASSLAND",
+    minCount: 10000,
+    maxCount: 30000,
+    icon: "🌾",
+    badge: "10k - 30k FOLLICLES",
+    description: "A sparse but resilient follicular landscape traversing wide horizons.",
+  },
+  "Savanna": {
+    name: "SAVANNA",
+    minCount: 30000,
+    maxCount: 60000,
+    icon: "🏜️",
+    badge: "30k - 60k FOLLICLES",
+    description: "A balanced canopy capable of supporting classic strategic hairstyles.",
+  },
+  "Forest": {
+    name: "FOREST",
+    minCount: 60000,
+    maxCount: 90000,
+    icon: "🌲",
+    badge: "60k - 90k FOLLICLES",
+    description: "Structured, thriving canopy with robust shade capacity.",
+  },
+  "Rainforest": {
+    name: "RAINFOREST",
+    minCount: 90000,
+    maxCount: 120000,
+    icon: "🌧️",
+    badge: "90k - 120k FOLLICLES",
+    description: "Your scalp has officially become an ecosystem.",
+  },
+  "Amazon Prime": {
+    name: "AMAZON PRIME",
+    minCount: 120000,
+    maxCount: 999999,
+    icon: "⚡",
+    badge: "120k+ FOLLICLES",
+    description: "Unstoppable lion mane with next-day follicle delivery.",
+  },
+};
 
 export type AnalysisStage = {
   id: string;
@@ -82,6 +144,20 @@ export type CensusResult = {
     regionDetected: string;
     analysisRegion: string;
   };
+  userGuess?: number;
+  userGuessDifference?: number;
+  userGuessAccuracy?: number;
+  dnaCode?: string;
+  personalityArchetype?: {
+    title: string;
+    code: string;
+    trait: string;
+    description: string;
+  };
+  netHairWorth?: number;
+  barberTax?: number;
+  dragCoefficient?: number;
+  heatmapPoints?: Array<{ x: number; y: number; density: number }>;
 };
 
 export const MOCK_RESULT: CensusResult = {

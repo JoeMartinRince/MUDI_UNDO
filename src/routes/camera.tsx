@@ -7,6 +7,7 @@ import { CensusButton } from "@/components/census/CensusButton";
 import { MetaStrip } from "@/components/census/MetaStrip";
 import { SiteFooter } from "@/components/census/SiteFooter";
 import { processCapturedImage } from "@/services/imageProcessor";
+import { GuessCountInput } from "@/components/census/GuessCountInput";
 import {
   setCapturedImage,
   getCapturedImage,
@@ -252,7 +253,7 @@ function CameraPage() {
         )}
 
         {captured ? (
-          <div key="preview" className="animate-rise mt-6">
+          <div key="preview" className="animate-rise mt-6 space-y-6">
             <div className="grid grid-cols-2 gap-px border border-border bg-border">
               <div className="bg-paper px-3.5 py-3">
                 <div className="label-tech">CENSUS SUBJECT</div>
@@ -271,6 +272,9 @@ function CameraPage() {
                 <div className="label-tech-ink mt-1.5">01</div>
               </div>
             </div>
+
+            {/* Guess Your Hair Count protocol input */}
+            <GuessCountInput />
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <CensusButton variant="outline" size="lg" onClick={handleRetake} disabled={isAnalyzing}>

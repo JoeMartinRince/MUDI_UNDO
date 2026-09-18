@@ -1,11 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Trophy, Wind, Dna, DollarSign, Users, ShieldAlert } from "lucide-react";
 import { Wordmark } from "@/components/census/Wordmark";
 import { StatusDot } from "@/components/census/StatusDot";
 import { MetaStrip } from "@/components/census/MetaStrip";
 import { CensusButton } from "@/components/census/CensusButton";
 import { ScanVisualization } from "@/components/census/ScanVisualization";
 import { SiteFooter } from "@/components/census/SiteFooter";
+import { GlobalCensusTicker } from "@/components/census/GlobalCensusTicker";
 import { SYSTEM_META } from "@/data/census";
 
 export const Route = createFileRoute("/")({
@@ -33,7 +34,7 @@ export const Route = createFileRoute("/")({
 function Landing() {
   return (
     <div className="min-h-dvh bg-background">
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 space-y-6">
         {/* masthead */}
         <div className="hairline-b grid grid-cols-[minmax(0,1fr)_auto] items-start gap-3 py-4">
           <div className="min-w-0">
@@ -44,9 +45,11 @@ function Landing() {
           <StatusDot label="ONLINE" className="sm:hidden" />
         </div>
 
+        <GlobalCensusTicker />
+
         <main>
           <section className="grid gap-8 py-8 sm:py-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-12">
-            <div className="min-w-0">
+            <div className="min-w-0 text-left">
               <Wordmark size="xl" showSub={false} showLogo={true} />
               <div
                 lang="ml"
@@ -62,7 +65,7 @@ function Landing() {
 
               <p className="mt-5 max-w-prose text-base leading-relaxed text-foreground/80">
                 An advanced computer-vision census designed to determine the current population
-                status of human hair.
+                status of human hair. Includes live leaderboards, wind tunnel lab, financial hair valuation, and character twin matching.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -86,6 +89,41 @@ function Landing() {
                 </div>
                 <ScanVisualization scanning />
               </div>
+            </div>
+          </section>
+
+          {/* Feature Badges Grid */}
+          <section className="my-8 grid grid-cols-2 gap-3 sm:grid-cols-4 text-left">
+            <div className="border border-hairline bg-paper p-3 space-y-1">
+              <div className="label-tech flex items-center gap-1.5 text-primary">
+                <Users className="h-3.5 w-3.5" /> 20 HAIR TWINS
+              </div>
+              <div className="text-xs font-mono font-bold text-foreground">CHARACTER MATCHING</div>
+              <p className="label-tech text-[0.55rem]">Match Saitama, Bob Ross & Gojo</p>
+            </div>
+
+            <div className="border border-hairline bg-paper p-3 space-y-1">
+              <div className="label-tech flex items-center gap-1.5 text-amber-600">
+                <Wind className="h-3.5 w-3.5" /> AERODYNAMICS LAB
+              </div>
+              <div className="text-xs font-mono font-bold text-foreground">WIND TUNNEL TEST</div>
+              <p className="label-tech text-[0.55rem]">Drag coefficient & wind tolerance</p>
+            </div>
+
+            <div className="border border-hairline bg-paper p-3 space-y-1">
+              <div className="label-tech flex items-center gap-1.5 text-emerald-600">
+                <DollarSign className="h-3.5 w-3.5" /> HAIR ECONOMY
+              </div>
+              <div className="text-xs font-mono font-bold text-foreground">FINANCIAL REPORT</div>
+              <p className="label-tech text-[0.55rem]">Portfolio worth & Barber tax</p>
+            </div>
+
+            <div className="border border-hairline bg-paper p-3 space-y-1">
+              <div className="label-tech flex items-center gap-1.5 text-primary">
+                <Trophy className="h-3.5 w-3.5" /> LEADERBOARD
+              </div>
+              <div className="text-xs font-mono font-bold text-foreground">NATIONAL RANKINGS</div>
+              <p className="label-tech text-[0.55rem]">Compete for top scalp population</p>
             </div>
           </section>
 

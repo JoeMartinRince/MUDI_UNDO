@@ -1,8 +1,10 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { DensityHeatmap } from "./DensityHeatmap";
 
 /**
- * Stylised technical head-scan instrument with optional live video or preview overlay.
+ * Stylised technical head-scan instrument with optional live video, preview overlay,
+ * and interactive density heatmap support.
  */
 export function ScanVisualization({
   scanning = false,
@@ -12,6 +14,8 @@ export function ScanVisualization({
   previewUrl,
   isCameraActive = false,
   isFrontCamera = true,
+  showHeatmap = false,
+  hairCoverage = 78.4,
 }: {
   scanning?: boolean;
   labels?: boolean;
@@ -20,6 +24,8 @@ export function ScanVisualization({
   previewUrl?: string | null | undefined;
   isCameraActive?: boolean;
   isFrontCamera?: boolean;
+  showHeatmap?: boolean;
+  hairCoverage?: number;
 }) {
   const hasMedia = Boolean(isCameraActive || previewUrl);
 
@@ -47,6 +53,15 @@ export function ScanVisualization({
           src={previewUrl}
           alt="Acquired head scan preview"
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
+        />
+      )}
+
+      {/* Density Heatmap Overlay */}
+      {showHeatmap && (
+        <DensityHeatmap
+          active={true}
+          coverage={hairCoverage}
+          className="absolute inset-0 h-full w-full pointer-events-none"
         />
       )}
 
@@ -159,7 +174,7 @@ export function ScanVisualization({
               MU-VISION / FOLLICLE-NET
             </text>
             <text x="236" y="392">
-              CAL 0.998
+              {showHeatmap ? "HEATMAP ACTIVE" : "CAL 0.998"}
             </text>
           </g>
         )}
