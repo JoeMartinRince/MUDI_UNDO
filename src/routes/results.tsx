@@ -38,6 +38,7 @@ import { HairWeatherForecastCard } from "@/components/census/HairWeatherForecast
 import { HairBossBattleCard } from "@/components/census/HairBossBattleCard";
 import { HairEvolutionCard } from "@/components/census/HairEvolutionCard";
 import { HairSupportHotlineCard } from "@/components/census/HairSupportHotlineCard";
+import { BreakingNewsCard } from "@/components/census/BreakingNewsCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -226,6 +227,12 @@ function ResultsPage() {
 
         {/* Fictional Hair Support Hotline Parody */}
         <HairSupportHotlineCard censusNumber={result.censusNumber} />
+
+        {/* Mudi Undo Breaking News TV Broadcast Parody */}
+        <BreakingNewsCard
+          hairPopulation={result.hairPopulation}
+          censusNumber={result.censusNumber}
+        />
 
         {/* 7. HAIR TWIN */}
         <TwinCard
