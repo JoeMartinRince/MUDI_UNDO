@@ -57,26 +57,32 @@ function Landing() {
               >
                 മുടി ഉണ്ടോ?
               </div>
-              <div className="label-tech mt-3">OFFICIAL HUMAN HAIR POPULATION SURVEY</div>
+              <div className="label-tech mt-3 flex flex-wrap items-center gap-2">
+                <span className="border border-emerald-500/50 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-bold text-emerald-600 uppercase">
+                  ⚡ WORKING COMPUTER-VISION AI PIPELINE
+                </span>
+                <span className="border border-rose-500/50 bg-rose-500/10 px-2 py-0.5 text-[10px] font-bold text-rose-600 uppercase">
+                  🎭 PARODY ENTERTAINMENT PLATFORM
+                </span>
+              </div>
 
-              <h1 className="wordmark mt-8 text-4xl leading-[0.95] sm:text-6xl">
+              <h1 className="wordmark mt-6 text-4xl leading-[0.95] sm:text-6xl">
                 WE NEED TO KNOW.
               </h1>
 
-              <p className="mt-5 max-w-prose text-base leading-relaxed text-foreground/80">
-                An advanced computer-vision census designed to determine the current population
-                status of human hair. Includes live leaderboards, wind tunnel lab, financial hair valuation, and character twin matching.
+              <p className="mt-5 max-w-prose text-base leading-relaxed text-foreground/80 font-sans">
+                A working computer-vision hair census powered by Gemini AI vision, transformed into a ridiculous, absurdly serious national hair census authority.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <CensusButton asChild size="lg">
+                <CensusButton asChild size="lg" className="shadow-lg hover:scale-105 transition-transform">
                   <Link to="/camera">
-                    BEGIN CENSUS <ArrowRight className="h-3.5 w-3.5" />
+                    🚀 BEGIN CENSUS <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                 </CensusButton>
                 <div className="label-tech space-y-1 sm:ml-2">
-                  <p>NO REGISTRATION REQUIRED</p>
-                  <p>CAMERA ACCESS REQUIRED</p>
+                  <p>COMPETITION DEMO MODE · 2-3 MIN JOURNEY</p>
+                  <p>CAMERA & AI PIPELINE ACTIVE</p>
                 </div>
               </div>
             </div>

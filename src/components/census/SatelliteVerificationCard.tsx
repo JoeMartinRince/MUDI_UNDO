@@ -63,9 +63,23 @@ export function SatelliteVerificationCard({
             SATELLITE VERIFICATION
           </h3>
         </div>
-        <span className="label-tech border border-sky-500/40 bg-sky-500/10 px-2.5 py-1 text-xs font-bold text-sky-400">
-          SIMULATED SATELLITE VERIFICATION
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="label-tech border border-sky-500/40 bg-sky-500/10 px-2.5 py-1 text-xs font-bold text-sky-400">
+            SIMULATED SATELLITE VERIFICATION
+          </span>
+          {!confirmed && (
+            <button
+              onClick={() => {
+                setActiveStep(steps.length);
+                setConfirmed(true);
+                if (onComplete) onComplete();
+              }}
+              className="label-tech border border-slate-700 bg-slate-900 px-2.5 py-1 text-xs text-sky-300 hover:text-paper cursor-pointer transition-colors"
+            >
+              FAST-FORWARD ⏩
+            </button>
+          )}
+        </div>
       </div>
 
       <p className="relative z-10 text-xs text-slate-300 font-sans italic">
