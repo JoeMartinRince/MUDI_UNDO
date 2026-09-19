@@ -29,6 +29,7 @@ import { WhereDidYourHairGoCard } from "@/components/census/WhereDidYourHairGoCa
 import { MyHairHistoryCard } from "@/components/census/MyHairHistoryCard";
 import { EasterEggAlerts } from "@/components/census/EasterEggAlerts";
 import { HairEmergencyAlertModal } from "@/components/census/HairEmergencyAlertModal";
+import { SatelliteVerificationCard } from "@/components/census/SatelliteVerificationCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -179,6 +180,12 @@ function ResultsPage() {
         <VisualDensityHeatmapCard
           hairCoverage={result.hairCoverage}
           confidence={result.confidence}
+        />
+
+        {/* Simulated Satellite Verification Stage */}
+        <SatelliteVerificationCard
+          hairPopulation={result.hairPopulation}
+          autoPlay={true}
         />
 
         {/* 6. WHERE DID YOUR HAIR GO? INVESTIGATION */}
