@@ -37,6 +37,7 @@ import { PillowHairDetectorCard } from "@/components/census/PillowHairDetectorCa
 import { HairWeatherForecastCard } from "@/components/census/HairWeatherForecastCard";
 import { HairBossBattleCard } from "@/components/census/HairBossBattleCard";
 import { HairEvolutionCard } from "@/components/census/HairEvolutionCard";
+import { HairSupportHotlineCard } from "@/components/census/HairSupportHotlineCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -222,6 +223,9 @@ function ResultsPage() {
           hairPopulation={result.hairPopulation}
           hairCoverage={result.hairCoverage}
         />
+
+        {/* Fictional Hair Support Hotline Parody */}
+        <HairSupportHotlineCard censusNumber={result.censusNumber} />
 
         {/* 7. HAIR TWIN */}
         <TwinCard
