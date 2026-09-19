@@ -31,6 +31,7 @@ import { EasterEggAlerts } from "@/components/census/EasterEggAlerts";
 import { HairEmergencyAlertModal } from "@/components/census/HairEmergencyAlertModal";
 import { SatelliteVerificationCard } from "@/components/census/SatelliteVerificationCard";
 import { ProfessorMudiAvatar } from "@/components/census/ProfessorMudiAvatar";
+import { CombSimulatorCard } from "@/components/census/CombSimulatorCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -226,6 +227,9 @@ function ResultsPage() {
           hairCoverage={result.hairCoverage}
           baldnessIndex={result.baldnessIndex}
         />
+
+        {/* Interactive Comb Simulator Mini-Game */}
+        <CombSimulatorCard initialPopulation={result.hairPopulation} />
 
         {/* 12. MY HAIR HISTORY */}
         <MyHairHistoryCard currentResult={result} />
