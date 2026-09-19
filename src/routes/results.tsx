@@ -42,6 +42,7 @@ import { BreakingNewsCard } from "@/components/census/BreakingNewsCard";
 import { HairCourtCard } from "@/components/census/HairCourtCard";
 import { HairStadiumCard } from "@/components/census/HairStadiumCard";
 import { CinematicResultRevealCard } from "@/components/census/CinematicResultRevealCard";
+import { ExploreYourHairHub } from "@/components/census/ExploreYourHairHub";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -147,91 +148,41 @@ function ResultsPage() {
           autoPlay={true}
         />
 
-        {/* 6. WHERE DID YOUR HAIR GO? INVESTIGATION */}
-        <WhereDidYourHairGoCard
-          hairPopulation={result.hairPopulation}
-          censusNumber={result.censusNumber}
-        />
-
-        {/* Pillow Hair Detector Comedy Mini-Game */}
-        <PillowHairDetectorCard
-          censusNumber={result.censusNumber}
-          initialPopulation={result.hairPopulation}
-        />
-
-        {/* Fictional Hair Weather Forecast */}
-        <HairWeatherForecastCard
-          hairPopulation={result.hairPopulation}
-          censusNumber={result.censusNumber}
-        />
-
-        {/* Fictional Hair Boss Battle Mini-Game */}
-        <HairBossBattleCard hairPopulation={result.hairPopulation} />
-
-        {/* Fictional Hair Evolution Tree */}
-        <HairEvolutionCard
-          classification={result.classification}
-          hairPopulation={result.hairPopulation}
-          hairCoverage={result.hairCoverage}
-        />
-
-        {/* Fictional Hair Support Hotline Parody */}
-        <HairSupportHotlineCard censusNumber={result.censusNumber} />
-
-        {/* Mudi Undo Breaking News TV Broadcast Parody */}
-        <BreakingNewsCard
-          hairPopulation={result.hairPopulation}
-          censusNumber={result.censusNumber}
-        />
-
-        {/* The Hair Court Fictional Courtroom Parody */}
-        <HairCourtCard
-          hairPopulation={result.hairPopulation}
-          hairCoverage={result.hairCoverage}
-          classification={result.classification}
-          censusNumber={result.censusNumber}
-        />
-
-        {/* The Hair Stadium Fictional Particle Crowd Engine */}
-        <HairStadiumCard hairPopulation={result.hairPopulation} />
-
-        {/* 7. HAIR TWIN */}
+        {/* 6. CORE ANALYTICAL CARDS */}
         <TwinCard
           twin={result.twin}
           hairCoverage={result.hairCoverage}
           scalpExposure={result.scalpExposure}
         />
 
-        {/* 8. HAIR DNA */}
         <HairDnaCard
           censusNumber={result.censusNumber}
           hairCoverage={result.hairCoverage}
           confidence={result.confidence}
         />
 
-        {/* 9. HAIR PERSONALITY */}
         <HairPersonalityCard
           hairCoverage={result.hairCoverage}
           hairPopulation={result.hairPopulation}
         />
 
-        {/* 10. HAIR ECONOMY */}
         <HairEconomyCard
           hairPopulation={result.hairPopulation}
           hairCoverage={result.hairCoverage}
         />
 
-        {/* 11. WIND RESISTANCE TEST */}
         <WindTunnelCard
           hairCoverage={result.hairCoverage}
           baldnessIndex={result.baldnessIndex}
         />
 
-        {/* Interactive Comb Simulator Mini-Game */}
-        <CombSimulatorCard initialPopulation={result.hairPopulation} />
-
-        {/* Shower Hair Simulator Comedy Mini-Game */}
-        <ShowerSimulatorCard initialPopulation={result.hairPopulation} />
+        {/* 7. EXPLORE YOUR HAIR — INTERACTIVE PARODY & MINI-GAME LAUNCHER HUB */}
+        <ExploreYourHairHub
+          hairPopulation={result.hairPopulation}
+          hairCoverage={result.hairCoverage}
+          classification={result.classification}
+          censusNumber={result.censusNumber}
+        />
 
         {/* 12. MY HAIR HISTORY */}
         <MyHairHistoryCard currentResult={result} />
