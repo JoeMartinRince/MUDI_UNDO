@@ -41,6 +41,7 @@ import { HairSupportHotlineCard } from "@/components/census/HairSupportHotlineCa
 import { BreakingNewsCard } from "@/components/census/BreakingNewsCard";
 import { HairCourtCard } from "@/components/census/HairCourtCard";
 import { HairStadiumCard } from "@/components/census/HairStadiumCard";
+import { CinematicResultRevealCard } from "@/components/census/CinematicResultRevealCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -97,68 +98,15 @@ function ResultsPage() {
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-6 sm:px-6 sm:py-8 space-y-6">
         <GlobalCensusTicker />
 
-        {/* 1. HAIR POPULATION REVEAL - Competition Result Dashboard Header */}
-        <section className="animate-rise border-2 border-primary bg-paper p-6 sm:p-8 text-center relative overflow-hidden shadow-md">
-          <div className="grid-paper absolute inset-0 opacity-20" aria-hidden />
-
-          <div className="relative z-10 flex flex-col items-center space-y-4">
-            <div className="flex flex-wrap items-center justify-between w-full border-b border-hairline pb-3 gap-2">
-              <div className="label-tech flex items-center gap-1.5 font-bold text-primary text-xs">
-                <CheckCircle2 className="h-4 w-4 text-emerald-600" />
-                <span>CENSUS STATUS: OFFICIALLY REGISTERED & VERIFIED</span>
-              </div>
-              <button
-                onClick={() => setNicknameOpen(true)}
-                className="label-tech flex items-center gap-1 font-bold text-amber-600 hover:underline cursor-pointer border border-amber-500/40 bg-amber-500/10 px-2.5 py-1"
-              >
-                <Trophy className="h-3.5 w-3.5" />
-                <span>REGISTER NICKNAME</span>
-              </button>
-            </div>
-
-            <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
-              <AuthoritySeal className="h-14 w-14 shrink-0" />
-              <div className="text-center sm:text-left">
-                <h1 className="wordmark text-3xl sm:text-5xl text-foreground font-black tracking-tight">
-                  HAIR CENSUS COMPLETE
-                </h1>
-                <div className="label-tech text-primary font-bold mt-0.5">
-                  NATIONAL HAIR CENSUS AUTHORITY • OFFICIAL RECORD
-                </div>
-              </div>
-            </div>
-
-            {/* Particle Canvas & Animated Hair Population Counter */}
-            <FollicleParticleCanvas targetPopulation={result.hairPopulation} />
-
-            {/* Quick Authority Metrics Strip */}
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 w-full pt-2 text-left font-mono">
-              <div className="border border-hairline bg-paper p-3">
-                <span className="label-tech">DENSITY INDEX</span>
-                <div className="wordmark text-xl text-primary font-bold mt-1">{result.hairCoverage}%</div>
-                <span className="label-tech text-[0.55rem]">SCALP COVERAGE</span>
-              </div>
-
-              <div className="border border-hairline bg-paper p-3">
-                <span className="label-tech">CONFIDENCE</span>
-                <div className="wordmark text-xl text-foreground font-bold mt-1">{result.confidence}%</div>
-                <span className="label-tech text-[0.55rem]">AI VISION SCORE</span>
-              </div>
-
-              <div className="border border-hairline bg-paper p-3">
-                <span className="label-tech">CLASSIFICATION</span>
-                <div className="wordmark text-lg text-emerald-700 font-bold mt-1 truncate">{result.classification}</div>
-                <span className="label-tech text-[0.55rem]">ECOSYSTEM TIER</span>
-              </div>
-
-              <div className="border border-hairline bg-paper p-3">
-                <span className="label-tech">CENSUS ID</span>
-                <div className="wordmark text-sm font-mono text-foreground font-bold mt-1 truncate">{result.censusNumber}</div>
-                <span className="label-tech text-[0.55rem]">REGISTRATION REF</span>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* 1. CINEMATIC HAIR POPULATION REVEAL HEADER */}
+        <CinematicResultRevealCard
+          hairPopulation={result.hairPopulation}
+          hairCoverage={result.hairCoverage}
+          confidence={result.confidence}
+          classification={result.classification}
+          censusNumber={result.censusNumber}
+          onOpenNicknameModal={() => setNicknameOpen(true)}
+        />
 
         {/* 2. DYNAMIC EASTER EGG ALERTS */}
         <EasterEggAlerts result={result} />
