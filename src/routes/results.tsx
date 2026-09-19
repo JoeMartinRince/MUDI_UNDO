@@ -33,6 +33,7 @@ import { SatelliteVerificationCard } from "@/components/census/SatelliteVerifica
 import { ProfessorMudiAvatar } from "@/components/census/ProfessorMudiAvatar";
 import { CombSimulatorCard } from "@/components/census/CombSimulatorCard";
 import { ShowerSimulatorCard } from "@/components/census/ShowerSimulatorCard";
+import { PillowHairDetectorCard } from "@/components/census/PillowHairDetectorCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -195,6 +196,12 @@ function ResultsPage() {
         <WhereDidYourHairGoCard
           hairPopulation={result.hairPopulation}
           censusNumber={result.censusNumber}
+        />
+
+        {/* Pillow Hair Detector Comedy Mini-Game */}
+        <PillowHairDetectorCard
+          censusNumber={result.censusNumber}
+          initialPopulation={result.hairPopulation}
         />
 
         {/* 7. HAIR TWIN */}
