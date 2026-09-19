@@ -39,6 +39,7 @@ import { HairBossBattleCard } from "@/components/census/HairBossBattleCard";
 import { HairEvolutionCard } from "@/components/census/HairEvolutionCard";
 import { HairSupportHotlineCard } from "@/components/census/HairSupportHotlineCard";
 import { BreakingNewsCard } from "@/components/census/BreakingNewsCard";
+import { HairCourtCard } from "@/components/census/HairCourtCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -231,6 +232,14 @@ function ResultsPage() {
         {/* Mudi Undo Breaking News TV Broadcast Parody */}
         <BreakingNewsCard
           hairPopulation={result.hairPopulation}
+          censusNumber={result.censusNumber}
+        />
+
+        {/* The Hair Court Fictional Courtroom Parody */}
+        <HairCourtCard
+          hairPopulation={result.hairPopulation}
+          hairCoverage={result.hairCoverage}
+          classification={result.classification}
           censusNumber={result.censusNumber}
         />
 
