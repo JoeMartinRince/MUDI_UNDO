@@ -28,6 +28,7 @@ import { NicknameModal } from "@/components/census/NicknameModal";
 import { WhereDidYourHairGoCard } from "@/components/census/WhereDidYourHairGoCard";
 import { MyHairHistoryCard } from "@/components/census/MyHairHistoryCard";
 import { EasterEggAlerts } from "@/components/census/EasterEggAlerts";
+import { HairEmergencyAlertModal } from "@/components/census/HairEmergencyAlertModal";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -307,6 +308,9 @@ function ResultsPage() {
         <CensusCertificate result={result} />
         <p className="label-tech mt-4">SCREENSHOT THIS DOCUMENT TO RETAIN YOUR RECORD.</p>
       </CensusModal>
+
+      {/* Cinematic Hair Emergency Alert Modal */}
+      <HairEmergencyAlertModal result={result} />
     </div>
   );
 }
