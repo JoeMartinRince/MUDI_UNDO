@@ -32,6 +32,7 @@ import { HairEmergencyAlertModal } from "@/components/census/HairEmergencyAlertM
 import { SatelliteVerificationCard } from "@/components/census/SatelliteVerificationCard";
 import { ProfessorMudiAvatar } from "@/components/census/ProfessorMudiAvatar";
 import { CombSimulatorCard } from "@/components/census/CombSimulatorCard";
+import { ShowerSimulatorCard } from "@/components/census/ShowerSimulatorCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -230,6 +231,9 @@ function ResultsPage() {
 
         {/* Interactive Comb Simulator Mini-Game */}
         <CombSimulatorCard initialPopulation={result.hairPopulation} />
+
+        {/* Shower Hair Simulator Comedy Mini-Game */}
+        <ShowerSimulatorCard initialPopulation={result.hairPopulation} />
 
         {/* 12. MY HAIR HISTORY */}
         <MyHairHistoryCard currentResult={result} />
