@@ -36,6 +36,7 @@ import { ShowerSimulatorCard } from "@/components/census/ShowerSimulatorCard";
 import { PillowHairDetectorCard } from "@/components/census/PillowHairDetectorCard";
 import { HairWeatherForecastCard } from "@/components/census/HairWeatherForecastCard";
 import { HairBossBattleCard } from "@/components/census/HairBossBattleCard";
+import { HairEvolutionCard } from "@/components/census/HairEvolutionCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -214,6 +215,13 @@ function ResultsPage() {
 
         {/* Fictional Hair Boss Battle Mini-Game */}
         <HairBossBattleCard hairPopulation={result.hairPopulation} />
+
+        {/* Fictional Hair Evolution Tree */}
+        <HairEvolutionCard
+          classification={result.classification}
+          hairPopulation={result.hairPopulation}
+          hairCoverage={result.hairCoverage}
+        />
 
         {/* 7. HAIR TWIN */}
         <TwinCard
