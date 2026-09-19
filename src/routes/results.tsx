@@ -30,6 +30,7 @@ import { MyHairHistoryCard } from "@/components/census/MyHairHistoryCard";
 import { EasterEggAlerts } from "@/components/census/EasterEggAlerts";
 import { HairEmergencyAlertModal } from "@/components/census/HairEmergencyAlertModal";
 import { SatelliteVerificationCard } from "@/components/census/SatelliteVerificationCard";
+import { ProfessorMudiAvatar } from "@/components/census/ProfessorMudiAvatar";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -318,6 +319,9 @@ function ResultsPage() {
 
       {/* Cinematic Hair Emergency Alert Modal */}
       <HairEmergencyAlertModal result={result} />
+
+      {/* Professor Mudi Cartoon Scientist Commentary */}
+      <ProfessorMudiAvatar result={result} />
     </div>
   );
 }
