@@ -40,6 +40,7 @@ import { HairEvolutionCard } from "@/components/census/HairEvolutionCard";
 import { HairSupportHotlineCard } from "@/components/census/HairSupportHotlineCard";
 import { BreakingNewsCard } from "@/components/census/BreakingNewsCard";
 import { HairCourtCard } from "@/components/census/HairCourtCard";
+import { HairStadiumCard } from "@/components/census/HairStadiumCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -242,6 +243,9 @@ function ResultsPage() {
           classification={result.classification}
           censusNumber={result.censusNumber}
         />
+
+        {/* The Hair Stadium Fictional Particle Crowd Engine */}
+        <HairStadiumCard hairPopulation={result.hairPopulation} />
 
         {/* 7. HAIR TWIN */}
         <TwinCard
