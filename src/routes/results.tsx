@@ -34,6 +34,7 @@ import { ProfessorMudiAvatar } from "@/components/census/ProfessorMudiAvatar";
 import { CombSimulatorCard } from "@/components/census/CombSimulatorCard";
 import { ShowerSimulatorCard } from "@/components/census/ShowerSimulatorCard";
 import { PillowHairDetectorCard } from "@/components/census/PillowHairDetectorCard";
+import { HairWeatherForecastCard } from "@/components/census/HairWeatherForecastCard";
 
 export const Route = createFileRoute("/results")({
   head: () => ({
@@ -202,6 +203,12 @@ function ResultsPage() {
         <PillowHairDetectorCard
           censusNumber={result.censusNumber}
           initialPopulation={result.hairPopulation}
+        />
+
+        {/* Fictional Hair Weather Forecast */}
+        <HairWeatherForecastCard
+          hairPopulation={result.hairPopulation}
+          censusNumber={result.censusNumber}
         />
 
         {/* 7. HAIR TWIN */}
