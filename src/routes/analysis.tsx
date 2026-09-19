@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { SiteHeader } from "@/components/census/SiteHeader";
 import { ScanVisualization } from "@/components/census/ScanVisualization";
 import { MetaStrip } from "@/components/census/MetaStrip";
+import { CinematicLoadingOverlay } from "@/components/census/CinematicLoadingOverlay";
 import { ANALYSIS_TELEMETRY } from "@/data/census";
 import { analyzeHair, getCapturedImage, getGeminiDebugInfo } from "@/services/hairAnalysis";
 import { cn } from "@/lib/utils";
@@ -117,6 +118,9 @@ function AnalysisPage() {
             style={{ width: `${progress * 100}%` }}
           />
         </div>
+
+        {/* Unified Cinematic Loading System Overlay */}
+        <CinematicLoadingOverlay subtext="Please remain patient while the National Hair Census Authority processes your scalp photo." />
 
         <div className="grid gap-6 lg:grid-cols-[1fr_0.95fr]">
           <div className="border border-hairline bg-paper p-2 sm:p-3">
